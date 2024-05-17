@@ -17,16 +17,32 @@ class _CalculatorPageState extends State<CalculatorPage> {
   double totalChargesBeforeRebate = 0.0;
   double rebateAmount = 0.0;
   String? rebateError;
+  String? unitsError;
 
   void calculateTotalCharges() {
-    double units = double.tryParse(unitsController.text) ?? 0.0;
+    double? units = double.tryParse(unitsController.text);
     double rebate = double.tryParse(rebateController.text) ?? 0.0;
+
+    if (units == null || units <= 0) {
+      setState(() {
+        unitsError = 'Please enter the electricity units used';
+      });
+      return;
+    } else {
+      setState(() {
+        unitsError = null;
+      });
+    }
 
     if (rebate > 5.0) {
       setState(() {
         rebateError = 'Rebate cannot exceed 5%';
       });
       return;
+    } else {
+      setState(() {
+        rebateError = null;
+      });
     }
 
     double charges = 0.0;
@@ -45,9 +61,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
     rebateAmount = charges * rebate / 100;
     totalCharges = charges - rebateAmount;
 
-    setState(() {
-      rebateError = null;
-    });
+    setState(() {});
   }
 
   @override
@@ -119,8 +133,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       TextField(
                         controller: unitsController,
                         keyboardType: TextInputType.number,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           labelText: 'Enter Units (kWh)',
+                          errorText: unitsError,
                         ),
                       ),
                       const SizedBox(height: 16.0),
