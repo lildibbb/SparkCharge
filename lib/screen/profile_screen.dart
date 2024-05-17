@@ -25,19 +25,27 @@ class ProfilePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    const Text(
+                      'Profile',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
                     const CircleAvatar(
                       radius: 50,
                       backgroundImage: AssetImage(Assets.profilePic),
                     ),
                     const SizedBox(height: 10),
-                    const ListTile(
-                      title: Text(
-                        'MUHAMAD ADIB ASYRAAF BIN AZIS',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    const Text(
+                      'MUHAMAD ADIB ASYRAAF BIN AZIS',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        overflow: TextOverflow.ellipsis,
                       ),
+                      maxLines: 1,
                     ),
                     const Text(
                       'Student ID: 2023126433',
@@ -52,7 +60,7 @@ class ProfilePage extends StatelessWidget {
                         fontSize: 18,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     GestureDetector(
                       onTap: () {
                         _launchURL('https://github.com/lildibbb');
@@ -84,6 +92,10 @@ class ProfilePage extends StatelessWidget {
             const SizedBox(height: 20),
             const Text(
               '© 2024 MUHAMAD ADIB ASYRAAF. All rights reserved. The content and design of this application are protected by copyright law. This includes all text, images, graphics, and other materials used in this app. Unauthorized use or reproduction of any content from this app is prohibited without prior written permission. For inquiries or permissions regarding the use of the app\'s content, please contact 2023126433@student.uitm.edu.my.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 14,
+              ),
             ),
           ],
         ),
