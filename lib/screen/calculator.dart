@@ -34,7 +34,12 @@ class _CalculatorPageState extends State<CalculatorPage> {
       });
     }
 
-    if (rebate > 5.0) {
+    if (rebate < 0) {
+      setState(() {
+        rebateError = 'Rebate cannot be negative';
+      });
+      return;
+    } else if (rebate > 5.0) {
       setState(() {
         rebateError = 'Rebate cannot exceed 5%';
       });
@@ -138,7 +143,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       const SizedBox(height: 16.0),
                       Text(
                         'Rebate (%)',
-                        style: Theme.of(context).textTheme.subtitle1,
+                        style: Theme.of(context).textTheme.titleMedium,
                         textAlign: TextAlign.start,
                       ),
                       TextField(
