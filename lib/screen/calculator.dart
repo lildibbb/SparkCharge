@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CalculatorPage extends StatefulWidget {
-  const CalculatorPage({Key? key, required this.title});
+  const CalculatorPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -34,12 +35,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
       });
     }
 
-    if (rebate < 0) {
-      setState(() {
-        rebateError = 'Rebate cannot be negative';
-      });
-      return;
-    } else if (rebate > 5.0) {
+    if (rebate > 5.0) {
       setState(() {
         rebateError = 'Rebate cannot exceed 5%';
       });
@@ -135,6 +131,10 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       TextField(
                         controller: unitsController,
                         keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'^\d*\.?\d*'))
+                        ],
                         decoration: InputDecoration(
                           labelText: 'Enter Units (kWh)',
                           errorText: unitsError,
@@ -143,12 +143,16 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       const SizedBox(height: 16.0),
                       Text(
                         'Rebate (%)',
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: Theme.of(context).textTheme.subtitle1,
                         textAlign: TextAlign.start,
                       ),
                       TextField(
                         controller: rebateController,
                         keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'^\d*\.?\d*'))
+                        ],
                         decoration: InputDecoration(
                           labelText: 'Enter Rebate (%)',
                           errorText: rebateError,
