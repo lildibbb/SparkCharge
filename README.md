@@ -1,24 +1,12 @@
 <a name="readme-top"></a>
 
-<!--
-*** Thank you for checking out this project! If you have a suggestion
-*** that would make it better, please fork the repo and create a pull request
-*** or open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 <!-- PROJECT SHIELDS -->
-<!--
-*** Using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc.
--->
 
 
 
 
 
+LinkedIn
 
 <!-- PROJECT LOGO -->
 <br />
@@ -67,7 +55,7 @@
 </details>
 <!-- ABOUT THE PROJECT -->
 About The Project
-![Product Name Screen Shot][product-screenshot]
+Product Name Screen Shot
 
 This project is an electricity bills calculator that allows users to input the number of electricity units consumed and an optional rebate percentage. The app then calculates the total charges based on these inputs.
 
@@ -78,8 +66,6 @@ Allows for easy adjustments to rebate percentages.
 Implements DRY principles to avoid repetitive tasks.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 Built With
-[![Flutter][Flutter]][Flutter-url]
-[![Dart][Dart]][Dart-url]
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- GETTING STARTED -->
 Getting Started
@@ -167,4 +153,3 @@ Flutter Documentation
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[linkedin-url]:
